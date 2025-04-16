@@ -19,9 +19,8 @@ def get_claude_response(models, prompt, output_area):
     messages = [{"role": "user", "content": prompt}]
     with client.messages.stream(
 
-"""
-TODO:  Pass parameters for model, system, messages and max_tokens here
-"""
+
+# TODO:  Pass parameters for model, system, messages and max_tokens here
 
     ) as stream:
         for chunk in stream.text_stream:

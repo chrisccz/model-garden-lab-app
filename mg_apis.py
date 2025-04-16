@@ -24,22 +24,21 @@ if prompt:
 
     with ThreadPoolExecutor(max_workers=2) as executor:
         futures = [
- """"
-            executor.submit(
-                get_claude_response, 
-                models, 
-                prompt, 
-                empties[0]
-            ),
-  """
-  """
-                      executor.submit(
-                get_llama_response, 
-                models, 
-                prompt,
-                empties[1]
-            )
-"""
+# TODO Claude Sonnet 3.7
+#           executor.submit(
+#               get_claude_response, 
+#               models, 
+#               prompt, 
+#               empties[0]
+#           ),
+
+# TDOD Meta Llama
+#               executor.submit(
+#                get_llama_response, 
+#                models, 
+#                prompt,
+#                empties[1]
+#            )
         ]
         for t in executor._threads:
             add_script_run_ctx(t)
