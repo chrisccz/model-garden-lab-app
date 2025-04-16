@@ -9,7 +9,7 @@ region = os.environ['GOOGLE_CLOUD_CLAUDE_REGION']
 client = AnthropicVertex(region=region, project_id=project_id)
 
 
-def get_claude_response(models, prompt, empty):
+def get_claude_response(models, prompt, output_area):
     """Streams response from Claude model using Anthropic SDK."""
     response = ""
     system_msg = (
@@ -18,12 +18,13 @@ def get_claude_response(models, prompt, empty):
     )
     messages = [{"role": "user", "content": prompt}]
     with client.messages.stream(
-        model=models['Claude'],
-        system=system_msg,
-        messages=messages,
-        max_tokens=2048,
+
+"""
+TODO:  Pass paramters for model, system, messages and max_tokens here
+"""
+
     ) as stream:
         for chunk in stream.text_stream:
             write_log_entry(models['Claude'], prompt, chunk)
             response += chunk
-            empty.markdown(response, unsafe_allow_html=True)
+            output_area.markdown(response, unsafe_allow_html=True)

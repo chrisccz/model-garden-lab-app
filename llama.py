@@ -31,11 +31,10 @@ def get_llama_response(models, prompt, output_area):
     messages = [system_msg, welcome_msg, user_msg]
 
     stream = client.chat.completions.create(
-        model=models['Llama'],
-        messages=messages,
-        stream=True,
-        temperature=0.5,
-        max_tokens=2048
+
+"""
+TODO: Pass paramters for model, messages, stream, temperature and max_tokens here
+"""
     )
 
     response = ""
