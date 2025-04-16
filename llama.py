@@ -33,7 +33,7 @@ def get_llama_response(models, prompt, output_area):
     stream = client.chat.completions.create(
 
 """
-TODO: Pass paramters for model, messages, stream, temperature and max_tokens here
+TODO: Pass parameters for model, messages, stream, temperature and max_tokens here
 """
     )
 
