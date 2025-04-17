@@ -11,8 +11,15 @@ region = os.environ['GOOGLE_CLOUD_REGION']
 def get_llama_response(models, prompt, output_area):
     """Streams response from Llama model using OpenAI-compatible SDK."""
     credentials, _ = default()
+
     auth_request = transport.requests.Request()
+
+# TODO Note how the credentials are set
+
     credentials.refresh(auth_request)
+
+
+# TODO Note the structure of the base URL 
 
     client = openai.OpenAI(
         base_url=f"https://{region}-aiplatform.googleapis.com/v1/projects/{project_id}/locations/{region}/endpoints/openapi/chat/completions?",
@@ -31,10 +38,12 @@ def get_llama_response(models, prompt, output_area):
     messages = [system_msg, welcome_msg, user_msg]
 
     stream = client.chat.completions.create(
-
-
-#TODO: Pass parameters for model, messages, stream, temperature and max_tokens here
-
+# TODO: Pass parameters for model, messages, stream, temperature and max_tokens here
+#        model= # TODO your_value here,
+#        messages= # TODO your_value here,
+#        stream= # TODO your_value here,
+#        temperature # TODO your_value here,
+#        max_tokens # TODO your_value here,
     )
 
     response = ""

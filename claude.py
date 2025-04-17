@@ -18,10 +18,11 @@ def get_claude_response(models, prompt, output_area):
     )
     messages = [{"role": "user", "content": prompt}]
     with client.messages.stream(
-
-
 # TODO:  Pass parameters for model, system, messages and max_tokens here
-
+#        model= # TODO your_value here,
+#        system= # TODO your value here,
+#        messages= # TODO your value here,
+#        max_tokens=# TODO your value here,
     ) as stream:
         for chunk in stream.text_stream:
             write_log_entry(models['Claude'], prompt, chunk)
